@@ -1,0 +1,12 @@
+Schließe Pin 1 (VSS) des Displays an GND des Raspberry Pi an.
+Schließe Pin 2 (VDD) des Displays an +5V des Raspberry Pi an.
+Schließe Pin 3 (VO) des Displays an den mittleren Pin eines Trimmers an, um den Kontrast einzustellen.
+Schließe Pin 4 (RS) des Displays an GPIO7 (Pin 26) des Raspberry Pi an.
+Schließe Pin 5 (RW) des Displays an GND des Raspberry Pi an.
+Schließe Pin 6 (E) des Displays an GPIO8 (Pin 24) des Raspberry Pi an.
+Schließe Pin 11 (D4) des Displays an GPIO25 (Pin 22) des Raspberry Pi an.
+Schließe Pin 12 (D5) des Displays an GPIO24 (Pin 18) des Raspberry Pi an.
+Schließe Pin 13 (D6) des Displays an GPIO23 (Pin 16) des Raspberry Pi an.
+Schließe Pin 14 (D7) des Displays an GPIO18 (Pin 12) des Raspberry Pi an.
+Schließe Pin 15 (A) des Displays an +5V des Raspberry Pi für die Hintergrundbeleuchtung an.
+Schließe Pin 16 (K) des Displays an GND des Raspberry Pi für die Hintergrundbeleuchtung an2.
