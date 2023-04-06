@@ -1,6 +1,6 @@
 # wie installiere ich lcddriver?
 #   sudo pip3 install lcddriver
-import lcddriver
+import drivers
 import datetime
 import time
 
@@ -31,5 +31,13 @@ def alarm():
 
 
 if __name__ == "__main__":
+    display = drivers.lcd()
+    try:
+        while True:
+            display.lcd_display_string("Hallo Welt!", 1)
+            display.lcd_display_string("Zeit: %s" % datetime.datetime.now().strftime("%H:%M:%S"), 2)
+            time.sleep(1)
+    except KeyboardInterrupt:
+        display.lcd_clear()
     alarm()
 
