@@ -1,43 +1,17 @@
-# wie installiere ich lcddriver?
-#   sudo pip3 install lcddriver
-import drivers
-import datetime
-import time
-
-def alarm():
-    # Setze die Uhrzeiten für die Alarme
-    alarm_times = [datetime.time(hour=11), datetime.time(hour=12)]
-
-    # Setze die Wochentage für die Alarme (Montag = 0, Sonntag = 6)
-    alarm_days = [0, 1, 2, 3, 4] # Montag bis Freitag
-
-    while True:
-        # Überprüfe, ob heute ein Alarm-Tag ist
-        if datetime.datetime.now().weekday() in alarm_days:
-            # Warte bis zum nächsten Alarm
-            now = datetime.datetime.now().time()
-            next_alarm_time = min(alarm_time for alarm_time in alarm_times if alarm_time > now)
-            if now >= next_alarm_time:
-                break
-            time.sleep(1)
-
-            # Führe eine Aktion aus, wenn der Alarm ausgelöst wird
-            print("Alarm ausgelöst!")
-
-        # Warte bis zum nächsten Tag
-        tomorrow = datetime.datetime.now() + datetime.timedelta(days=1)
-        tomorrow = tomorrow.replace(hour=0, minute=0, second=0, microsecond=0)
-        time.sleep((tomorrow - datetime.datetime.now()).total_seconds())
-
-
-if __name__ == "__main__":
-    display = drivers.lcd()
+import subprocess
+import sys
+from time import sleep
+# führe die dateien lcd.py und alarm.py aus und gebe ihre ausgaben in der konsole aus
+lcd_process = subprocess.Popen(["python3", 'lcd.py'], stdout=sys.stdout)
+alarm_process = subprocess.Popen(["python3", 'alarm.py'], stdout=sys.stdout)
+while True:
     try:
-        while True:
-            display.lcd_display_string("Hallo Welt!", 1)
-            display.lcd_display_string("Zeit: %s" % datetime.datetime.now().strftime("%H:%M:%S"), 2)
-            time.sleep(1)
-    except KeyboardInterrupt:
-        display.lcd_clear()
-    alarm()
+        sleep(2)  # Warte 2 Sekunde, um die CPU nicht unnötig zu belasten
+        pass
+    except:
+        # Schließe die Unterprozesse, wenn das Hauptprogramm durch Strg-C abgebrochen wird
+        lcd_process.terminate()
+        alarm_process.terminate()
+        break
+
 

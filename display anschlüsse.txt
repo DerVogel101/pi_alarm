@@ -1,12 +1,30 @@
-Schließe Pin 1 (VSS) des Displays an GND des Raspberry Pi an.
-Schließe Pin 2 (VDD) des Displays an +5V des Raspberry Pi an.
-Schließe Pin 3 (VO) des Displays an den mittleren Pin eines Trimmers an, um den Kontrast einzustellen.
-Schließe Pin 4 (RS) des Displays an GPIO7 (Pin 26) des Raspberry Pi an.
-Schließe Pin 5 (RW) des Displays an GND des Raspberry Pi an.
-Schließe Pin 6 (E) des Displays an GPIO8 (Pin 24) des Raspberry Pi an.
-Schließe Pin 11 (D4) des Displays an GPIO25 (Pin 22) des Raspberry Pi an.
-Schließe Pin 12 (D5) des Displays an GPIO24 (Pin 18) des Raspberry Pi an.
-Schließe Pin 13 (D6) des Displays an GPIO23 (Pin 16) des Raspberry Pi an.
-Schließe Pin 14 (D7) des Displays an GPIO18 (Pin 12) des Raspberry Pi an.
-Schließe Pin 15 (A) des Displays an +5V des Raspberry Pi für die Hintergrundbeleuchtung an.
-Schließe Pin 16 (K) des Displays an GND des Raspberry Pi für die Hintergrundbeleuchtung an2.
+Ground
+VCC - 5v not 3.3v
+Contrast adjustment (VO) from potentiometer
+Register Select (RS). RS=0: Command, RS=1: Data
+Read/Write (R/W). R/W=0: Write, R/W=1: Read (we won't use this pin)
+Clock (Enable). Falling edge triggered
+Bit 0 (Not used in 4-bit operation)
+Bit 1 (Not used in 4-bit operation)
+Bit 2 (Not used in 4-bit operation)
+Bit 3 (Not used in 4-bit operation)
+Bit 4
+Bit 5
+Bit 6
+Bit 7
+Backlight LED Anode (+)
+Backlight LED Cathode (-)
+
+Pin #1 of the LCD goes to ground
+Pin #2 of the LCD goes to +5V
+Pin #3 (Vo) connects to the middle of the potentiometer
+Pin #4 (RS) connects to the Cobbler #22
+Pin #5 (RW) goes to ground
+Pin #6 (EN) connects to Cobbler #17
+Skip LCD Pins #7, #8, #9 and #10
+Pin #11 (D4) connects to cobbler #25
+Pin #12 (D5) connects to Cobbler #24
+Pin #13 (D6) connects to Cobber #23
+Pin #14 (D7) connects to Cobber #18
+Pin #15 (LED +) goes to +5V (red wire)
+Pin #16 (LED -) goes to ground (black wire)
